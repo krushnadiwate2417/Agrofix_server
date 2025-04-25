@@ -25,6 +25,14 @@ app.use('/api/v1/user',userRoute);
 app.use('/api/v1/admin',adminRoute);
 
 
+app.use('/',(req,res,next)=>{
+    res.send({
+        status : "success",
+        error : false
+    })
+    next();
+})
+
 app.listen(port,()=>{
     console.log(`Server Started On port ${port}`)
 })
