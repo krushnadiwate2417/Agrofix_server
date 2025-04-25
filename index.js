@@ -7,7 +7,7 @@ const pool = require('./src/db/pool.js')
 
 const app = express();
 const port = process.env.PORT || 5001
-const allowedOrigins = [];
+const allowedOrigins = ['http://localhost:3000'];
 
 app.use(cors({
     origin : function (origin,callback){
