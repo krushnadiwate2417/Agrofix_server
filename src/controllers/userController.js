@@ -30,10 +30,10 @@ exports.getProducts = async (req,res)=>{
 exports.placeOrder = async (req,res)=>{
     try {
 
-        const {user_name,contact,delivery_address,order_status,product_id} = req.body;
+        const {user_name,contact,delivery_address,order_status,product_id,total_price,product_name,quantity} = req.body;
 
-        const get_query = 'INSERT INTO orders (user_name,contact,delivery_address,order_status,product_id) VALUES($1,$2,$3,$4,$5)';
-        pool.query(get_query,[user_name,contact,delivery_address,order_status,product_id],(err,result)=>{
+        const get_query = 'INSERT INTO orders (user_name,contact,delivery_address,order_status,product_id,total_price,product_name,quantity) VALUES($1,$2,$3,$4,$5,$6,$7,$8)';
+        pool.query(get_query,[user_name,contact,delivery_address,order_status,product_id,total_price,product_name,quantity],(err,result)=>{
             if(err){
                 res.status(400).json({
                     status : "fail",
