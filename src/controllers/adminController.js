@@ -114,8 +114,8 @@ exports.updateProduct = (req,res)=>{
 exports.deleteProduct = (req,res)=>{
     try {
         const productId = req.params.productId
-        const get_query = 'DELETE FROM productsCatalog WHERE product_id = $1';
-        pool.query(get_query,[productId],(err,result)=>{
+        const delete_query = 'DELETE FROM productsCatalog WHERE product_id = $1';
+        pool.query(delete_query,[productId],(err,result)=>{
             if(err){
                 res.status(400).json({
                     status : "fail",
@@ -123,7 +123,7 @@ exports.deleteProduct = (req,res)=>{
                     err : err
                 })
             }else{
-                res.status(204).json({
+                res.status(200).json({
                     status : "success",
                     message : "Product Deleted Successfully"
                 })
