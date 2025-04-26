@@ -65,7 +65,7 @@ exports.getOrders = async (req,res)=>{
                 o.delivery_address,
                 o.order_status,
                 o.total_price,
-                o.quantity
+                o.quantity,
                 p.product_id,
                 p.img_url,
                 p.product_name,
